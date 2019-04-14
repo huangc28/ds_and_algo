@@ -3,6 +3,7 @@ package lis
 import "log"
 
 var table []int
+var max int
 
 // The Longest Increasing Subsequence (LIS) problem
 // is to find the length of the longest subsequence
@@ -43,19 +44,20 @@ func LIS(inputs []int) int {
 		}
 	}
 
-	max := 1
-
 	for j := 0; j < len(inputs); j++ {
 		i := 0
 		for i < j {
-			if inputs[i] < inputs[j] && table[i]+1 != table[j] {
+			if inputs[i] < inputs[j] && table[i]+1 > table[j] {
 				table[j] = table[i] + 1
 			}
+
+			if table[j] > max {
+				max = table[j]
+			}
+
 			i++
 		}
 	}
-
-	log.Printf("table %v", table)
 
 	return max
 }

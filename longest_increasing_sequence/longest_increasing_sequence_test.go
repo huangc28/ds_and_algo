@@ -1,8 +1,9 @@
 package lis
 
 import (
-	"log"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestLongestIncreaseSequence(t *testing.T) {
@@ -10,5 +11,5 @@ func TestLongestIncreaseSequence(t *testing.T) {
 
 	res := LIS(arr)
 
-	log.Printf("res %v", res)
+	assert.Equal(t, res, 6)
 }
