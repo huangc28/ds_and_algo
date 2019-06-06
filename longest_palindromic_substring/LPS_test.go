@@ -1,9 +1,13 @@
 package lps
 
-import "testing"
+import (
+	"log"
+	"testing"
+)
 
 func TestLPS(t *testing.T) {
-	testStr := "abcdcba"
+	testStr := "abaabc"
+	substring, num := LPA(testStr)
 
-	LPA(testStr)
+	log.Printf("substring %s, %d", substring, num)
 }

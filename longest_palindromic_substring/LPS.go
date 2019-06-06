@@ -1,11 +1,9 @@
 package lps
 
-import "log"
-
 // Declare table to be a two dimentional array.
 var table [][]bool
 
-func LPA(s string) {
+func LPA(s string) (string, int) {
 	srune := []rune(s)
 
 	if table == nil {
@@ -44,15 +42,26 @@ func LPA(s string) {
 
 	// Determine whether substring with "length > 2" is palindromic or not
 	// In this case "i" is the starting point of the substring
+	// We need to declare a int variable for storing the largest number of substring.
+	// We need declare a int variable for storing the longest  number of substring.
+
+	largestNum := 0
+	longestStringPalindrom := ""
+
 	for l := 2; l < len(s); l++ {
-		for i := 0; i < len(s); i++ {
-			j := i + l
+		for i := 0; i <= len(s)-l; i++ {
+			j := i + l - 1
 
-			if srune[0] == srune[j] {
+			if srune[i] == srune[j] && table[i+1][j-1] == true {
+				table[i][j] = true
 
+				if j-i > largestNum {
+					largestNum = j - i
+					longestStringPalindrom = s[i : j+1]
+				}
 			}
 		}
 	}
 
-	log.Printf("table %v", table)
+	return longestStringPalindrom, len(longestStringPalindrom)
 }
