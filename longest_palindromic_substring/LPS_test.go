@@ -7,7 +7,14 @@ import (
 
 func TestLPS(t *testing.T) {
 	testStr := "abaabc"
-	substring, num := LPA(testStr)
+	substring, num := LPS(testStr)
 
 	log.Printf("substring %s, %d", substring, num)
+}
+
+func TestLPSCaseTwo(t *testing.T) {
+	testStr := "abacab"
+	substring, num := LPS(testStr)
+
+	log.Printf("params %v, %v", substring, num)
 }

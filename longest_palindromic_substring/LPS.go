@@ -3,7 +3,7 @@ package lps
 // Declare table to be a two dimentional array.
 var table [][]bool
 
-func LPA(s string) (string, int) {
+func LPS(s string) (string, int) {
 	srune := []rune(s)
 
 	if table == nil {
