@@ -34,13 +34,7 @@ Single character is always a palindrome. Thus, `table[i][j]` is always going to 
 rune1 := []rune(s)
 
 for i := 0 i < len(s); i++ {
-  for j := 0; j < len(s); j++ {
-    if i == j {
-      table[i][j] == true
-    } else {
-      table[i][j] == false
-    }
-  }
+  table[i][i] == true
 }
 ```
 
@@ -85,7 +79,7 @@ Thus, we can construct the algorithm as follow:
 
 
 ```go
-for l := 2; l < len(s); l++ {
+for l := 2; l <= len(s); l++ {
   for i := 0; i <= len(s)-l; i++ {
     j = i + l
 
