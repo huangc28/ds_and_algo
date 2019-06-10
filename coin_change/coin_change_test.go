@@ -13,7 +13,7 @@ func TestCoinChangeCaseOne(t *testing.T) {
 
 	num := CoinChange(coins, amount)
 
-	assert.Equal(t, num, 3)
+	assert.Equal(t, 3, num)
 }
 
 func TestCoinChangeCaseTwo(t *testing.T) {
@@ -21,7 +21,7 @@ func TestCoinChangeCaseTwo(t *testing.T) {
 
 	num := CoinChange(coins, 3)
 
-	assert.Equal(t, num, -1)
+	assert.Equal(t, -1, num)
 }
 
 func TestCoinChangeCaseThree(t *testing.T) {

@@ -18,7 +18,15 @@ func CoinChange(coins []int, amount int) int {
 		}
 	}
 
+	maxVal := 0
+	maxValKey := 0
 	for i := 0; i <= len(coins); i++ {
+
+		if i < len(coins) && coins[i] > maxVal {
+			maxVal = coins[i]
+			maxValKey = i
+		}
+
 		for a := 0; a <= amount; a++ {
 
 			// If there is no item or no amount given
@@ -37,7 +45,6 @@ func CoinChange(coins []int, amount int) int {
 					}
 				} else {
 					pos := table[i-1][remainder]
-
 					if pos == -1 {
 						table[i][a] = -1
 					} else {
@@ -48,5 +55,6 @@ func CoinChange(coins []int, amount int) int {
 		}
 	}
 
-	return table[len(coins)][amount]
+	// Find the index of the largest coin
+	return table[maxValKey+1][amount]
 }
