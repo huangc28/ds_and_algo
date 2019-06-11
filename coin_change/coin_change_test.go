@@ -1,7 +1,6 @@
 package coinchange
 
 import (
-	"log"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -30,5 +29,14 @@ func TestCoinChangeCaseThree(t *testing.T) {
 
 	num := CoinChange(coins, amount)
 
-	log.Printf("num %v", num)
+	assert.Equal(t, num, 4)
+}
+
+func TestCoinChangeCaseFour(t *testing.T) {
+	coins := []int{186, 419, 83, 408}
+	amount := 6249
+
+	num := CoinChange(coins, amount)
+
+	assert.Equal(t, 20, num)
 }
