@@ -1,6 +1,8 @@
 package maxprofit
 
-import "math"
+import (
+	"math"
+)
 
 // Brute force
 func MaxProfit(prices []int) int {
@@ -17,40 +19,40 @@ func MaxProfit(prices []int) int {
 	return maxProfit
 }
 
-func Max(arr []int) int {
-	val := 0
+func Max(args ...int) int {
+	maxVal := 0
 
-	for _, elem := range arr {
-		if elem > val {
-			val = elem
+	for _, v := range args {
+		if v > maxVal {
+			maxVal = v
 		}
 	}
 
-	return val
+	return maxVal
 }
 
-func Min(arr []int) int {
-	val := math.MaxInt64
+func Min(args ...int) int {
+	minVal := math.MaxInt64
 
-	for _, elem := range arr {
-		if elem < val {
-			val = elem
+	for _, v := range args {
+		if v < minVal {
+			minVal = v
 		}
 	}
 
-	return val
+	return minVal
 }
 
-func MaxProfitDivideConquer(prices []int) int {
+func MaxProfitDC(prices []int) int {
 	if len(prices) <= 1 {
 		return 0
 	}
 
 	mid := len(prices) / 2
-	rightHalf = prices[:mid]
-	leftHalf = prices[mid:]
+	rightHalf := prices[:mid]
+	leftHalf := prices[mid:]
 
-	case3 := Max(rightHalf) - Min(leftHalf)
+	case3 := Max(rightHalf...) - Min(leftHalf...)
 
-	return 0
+	return Max([]int{MaxProfitDC(rightHalf), MaxProfitDC(leftHalf), case3}...)
 }

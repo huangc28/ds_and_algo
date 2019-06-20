@@ -21,3 +21,11 @@ func TestMaxProfitCaseTwo(t *testing.T) {
 
 	assert.Equal(t, 0, res)
 }
+
+func TestDCCaseOne(t *testing.T) {
+	arr := []int{7, 1, 5, 3, 6, 4}
+
+	res := MaxProfitDC(arr)
+
+	assert.Equal(t, 6, res)
+}
