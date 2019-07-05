@@ -1,7 +1,5 @@
 package lnrs
 
-import "log"
-
 func lengthOfLongestSubstringOne(s string) int {
 	if len(s) == 0 {
 		return 0
@@ -35,7 +33,6 @@ func lengthOfLongestSubstringOne(s string) int {
 						i = pos + 1
 						break
 					}
-
 				}
 				i++
 			}
@@ -47,31 +44,6 @@ func lengthOfLongestSubstringOne(s string) int {
 			curMax = len(charMap)
 		}
 	}
-
-	return curMax
-}
-
-func lengthOfLongestSubstringTwo(s string) int {
-	if len(s) == 0 {
-		return 0
-	}
-
-	srune := []rune(s)
-	curMax, left := 0, 0
-
-	for j := 0; j < len(s); j++ {
-		if left < j && srune[left] == srune[j] {
-			left = j + 1
-		}
-
-		curLen := (j - left) + 1
-
-		if curLen > curMax {
-			curMax = curLen
-		}
-	}
-
-	log.Printf("cur max %v", curMax)
 
 	return curMax
 }
