@@ -13,6 +13,13 @@ type LinkedList struct {
 	Count int
 }
 
+// We are adding a new node to the current linked list.
+// We first assign the current head to a variable 'currentHead'.
+// we will assign the head of the linked list as the new node
+// Moreover, make the next node of the linked list head to 'currentHead'.
+// Finally, check if the length of the linked list equals to 0.
+// If it is, the newly added node is the only node in the list.
+// we mark this node as the tail either.
 func (ll *LinkedList) AddToFirst(n *Node) {
 	currentHead := ll.Head
 	ll.Head = n
